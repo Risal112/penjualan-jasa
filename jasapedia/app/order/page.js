@@ -1,109 +1,127 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { useState } from "react";
+import { HiOutlineArrowLeft, HiOutlineCodeBracket } from "react-icons/hi2";
 
 export default function OrderPage() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const serviceName = searchParams.get("serviceName") || "";
 
-  // State untuk input form
   const [name, setName] = useState("");
-  const [address, setAddress] = useState("");
-  const [pageCount, setPageCount] = useState("");
-  const [specialRequest, setSpecialRequest] = useState(""); // State untuk penjelasan atau permintaan khusus
+  const [phone, setPhone] = useState("");
+  const [budget, setBudget] = useState("");
+  const [projectDesc, setProjectDesc] = useState("");
 
-  // Fungsi untuk mengirim pesan ke WhatsApp
   const handleSubmit = (e) => {
-    e.preventDefault(); // Mencegah reload halaman
+    e.preventDefault();
 
-    const phoneNumber = "6283173495159"; // Ganti dengan nomor WhatsApp Anda (format internasional tanpa '+')
-    const message = `Halo kak, saya ingin memesan layanan ${serviceName}.\n\nNama: ${name}\nAlamat: ${address}\nJumlah Halaman: ${pageCount}\n\nPenjelasan/Permintaan Khusus: ${specialRequest}`;
+    const phoneNumber = "6283173495159";
+    const message = `Halo kak, saya tertarik dengan layanan ${serviceName}.\n\nNama: ${name}\nNo. HP: ${phone}\nBudget: ${budget}\n\nDeskripsi Proyek:\n${projectDesc}`;
 
-    // Buat URL WhatsApp
-    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-      message
-    )}`;
-
-    // Redirect ke WhatsApp
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappURL, "_blank");
   };
 
   return (
-    <div>
-      {/* Header */}
-      <header className="bg-blue-600 text-white p-4">
-        <h1 className="text-2xl font-bold">Form Pemesanan</h1>
-      </header>
-
-      {/* Main Content */}
-      <main className="container mx-auto py-8">
-        <h2 className="text-xl font-bold mb-4 text-center">Layanan: {serviceName}</h2> {/* Menambahkan text-center */}
-        <form
-          className="max-w-lg mx-auto bg-white p-6 shadow-md w-full sm:w-11/12"
-          onSubmit={handleSubmit}
-        >
-          <div className="mb-4">
-            <label className="block text-lg font-semibold mb-2">
-              Nama Pemesan
-            </label>
-            <input
-              type="text"
-              className="w-full p-2 border border-gray-300 rounded"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Masukkan nama Anda"
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-lg font-semibold mb-2">Alamat</label>
-            <input
-              type="text"
-              className="w-full p-2 border border-gray-300 rounded"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-              placeholder="Masukkan alamat Anda"
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-lg font-semibold mb-2">
-              Jumlah Halaman
-            </label>
-            <input
-              type="number"
-              className="w-full p-2 border border-gray-300 rounded"
-              value={pageCount}
-              onChange={(e) => setPageCount(e.target.value)}
-              placeholder="Masukkan jumlah halaman"
-              required
-            />
-          </div>
-          
-          {/* Tabel untuk Penjelasan/Pemintaan Khusus */}
-          <div className="mb-4">
-            <label className="block text-lg font-semibold mb-2">
-              Penjelasan/Pemintaan Khusus
-            </label>
-            <textarea
-              className="w-full p-2 border border-gray-300 rounded"
-              rows="4"
-              value={specialRequest}
-              onChange={(e) => setSpecialRequest(e.target.value)}
-              placeholder="Masukkan penjelasan atau permintaan khusus"
-              required // Menambahkan atribut required agar wajib diisi
-            />
-          </div>
-
+    <div className="min-h-screen">
+      {/* Navbar */}
+      <nav className="nav-glass sticky top-0 z-50 px-6 py-4">
+        <div className="max-w-6xl mx-auto flex items-center gap-4">
           <button
-            type="submit"
-            className="bg-blue-600 text-white px-4 py-2 rounded w-full"
+            onClick={() => router.push("/")}
+            className="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center hover:bg-indigo-100 transition-colors cursor-pointer"
           >
-            Kirim Pesanan
+            <HiOutlineArrowLeft className="text-xl text-indigo-600" />
           </button>
-        </form>
-      </main>
+          <h1 className="text-xl font-bold text-slate-900">Form Pemesanan</h1>
+        </div>
+      </nav>
+
+      {/* Content */}
+      <section className="px-6 py-16">
+        <div className="max-w-xl mx-auto">
+          {/* Service Badge */}
+          <div className="text-center mb-10">
+            <div className="w-16 h-16 rounded-2xl bg-indigo-50 flex items-center justify-center mx-auto mb-4">
+              <HiOutlineCodeBracket className="text-3xl text-indigo-600" />
+            </div>
+            <span className="soft-badge inline-block mb-3">{serviceName}</span>
+            <h2 className="text-3xl font-extrabold text-slate-900">Pesan Layanan</h2>
+            <p className="text-slate-500 text-sm mt-2">Isi form di bawah, kami akan hubungi Anda via WhatsApp</p>
+            <div className="section-divider mx-auto mt-4" />
+          </div>
+
+          {/* Form */}
+          <form className="soft-card p-8" onSubmit={handleSubmit}>
+            <div className="mb-5">
+              <label className="block text-sm font-semibold text-slate-700 mb-2">
+                Nama
+              </label>
+              <input
+                type="text"
+                className="soft-input"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Masukkan nama Anda"
+                required
+              />
+            </div>
+
+            <div className="mb-5">
+              <label className="block text-sm font-semibold text-slate-700 mb-2">
+                No. HP / WhatsApp
+              </label>
+              <input
+                type="tel"
+                className="soft-input"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                placeholder="Contoh: 08123456789"
+                required
+              />
+            </div>
+
+            <div className="mb-5">
+              <label className="block text-sm font-semibold text-slate-700 mb-2">
+                Estimasi Budget
+              </label>
+              <select
+                className="soft-input"
+                value={budget}
+                onChange={(e) => setBudget(e.target.value)}
+                required
+              >
+                <option value="">-- Pilih Budget --</option>
+                <option value="< 2 Juta">{"< Rp 2 Juta"}</option>
+                <option value="2 - 5 Juta">Rp 2 - 5 Juta</option>
+                <option value="5 - 10 Juta">Rp 5 - 10 Juta</option>
+                <option value="10 - 25 Juta">Rp 10 - 25 Juta</option>
+                <option value="> 25 Juta">{"> Rp 25 Juta"}</option>
+              </select>
+            </div>
+
+            <div className="mb-6">
+              <label className="block text-sm font-semibold text-slate-700 mb-2">
+                Deskripsi Proyek
+              </label>
+              <textarea
+                className="soft-input"
+                rows="5"
+                value={projectDesc}
+                onChange={(e) => setProjectDesc(e.target.value)}
+                placeholder="Ceritakan tentang proyek Anda: tujuan, fitur yang diinginkan, referensi website/aplikasi, dll."
+                required
+              />
+            </div>
+
+            <button type="submit" className="soft-btn w-full text-base cursor-pointer">
+              Kirim via WhatsApp
+            </button>
+          </form>
+        </div>
+      </section>
     </div>
   );
 }

@@ -3,19 +3,126 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary: #4F46E5;
+  --primary-light: #818CF8;
+  --primary-dark: #3730A3;
+  --accent: #F97316;
+  --bg-main: #F8FAFC;
+  --bg-card: #FFFFFF;
+  --text-primary: #1E293B;
+  --text-secondary: #64748B;
+  --shadow-soft: 0 4px 20px rgba(79, 70, 229, 0.08);
+  --shadow-soft-hover: 0 8px 30px rgba(79, 70, 229, 0.15);
+  --shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.04);
+  --radius: 16px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+}
+
+/* Soft UI Card */
+.soft-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(79, 70, 229, 0.06);
+}
+
+.soft-card:hover {
+  box-shadow: var(--shadow-soft-hover);
+  transform: translateY(-4px);
+}
+
+/* Soft Button */
+.soft-btn {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: white;
+  border-radius: 12px;
+  padding: 12px 28px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+  cursor: pointer;
+  border: none;
+}
+
+.soft-btn:hover {
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.45);
+  transform: translateY(-2px);
+}
+
+.soft-btn:active {
+  transform: translateY(0);
+}
+
+/* Soft Input */
+.soft-input {
+  background: var(--bg-card);
+  border: 2px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 12px 16px;
+  transition: all 0.2s ease;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.soft-input:focus {
+  outline: none;
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+/* Soft Badge */
+.soft-badge {
+  background: rgba(79, 70, 229, 0.08);
+  color: var(--primary);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Navbar glass */
+.nav-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(79, 70, 229, 0.08);
+}
+
+/* Section divider */
+.section-divider {
+  height: 4px;
+  width: 60px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .soft-card,
+  .soft-btn,
+  .soft-input {
+    transition: none;
+  }
+  .soft-card:hover {
+    transform: none;
+  }
+  .soft-btn:hover {
+    transform: none;
+  }
 }

@@ -7,9 +7,16 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-inter)', 'Inter', 'sans-serif'],
+      },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        primary: {
+          DEFAULT: '#4F46E5',
+          light: '#818CF8',
+          dark: '#3730A3',
+        },
+        accent: '#F97316',
       },
     },
   },

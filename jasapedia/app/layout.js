@@ -7,8 +7,8 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "JasaPedia - Solusi Jasa Cetak Anda",
-  description: "Jasa cetak foto copy, print, makalah, PPT, dan brosur dengan kualitas terbaik.",
+  title: "JasaPedia - Web & App Development Services",
+  description: "Jasa pembuatan website dan aplikasi profesional. Company profile, web app, mobile app, dan maintenance.",
 };
 
 export default function RootLayout({ children }) {

@@ -5,10 +5,12 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { FaWhatsapp, FaInstagram, FaMoon, FaSun } from "react-icons/fa";
 import {
-  HiOutlineCodeBracket,
-  HiOutlineGlobeAlt,
-  HiOutlineDevicePhoneMobile,
-  HiOutlineWrenchScrewdriver,
+  HiOutlineRocketLaunch,
+  HiOutlineStar,
+  HiOutlineShieldCheck,
+  HiOutlineCurrencyDollar,
+  HiOutlinePaintBrush,
+  HiOutlineChatBubbleLeftRight,
   HiOutlineCheckCircle,
   HiOutlineArrowRight,
   HiOutlineMapPin,
@@ -17,50 +19,63 @@ import { useScrollAnimation } from "../hooks/useScrollAnimation";
 import { useThemeAndLang } from "../hooks/useThemeAndLang";
 import { t } from "../i18n/translations";
 
-const services = [
+const advantages = [
   {
-    name: "Website Company Profile",
-    description: "Website profesional untuk memperkenalkan bisnis, produk, dan layanan Anda secara online.",
-    features: ["Responsive Design", "SEO Friendly", "Domain & Hosting 1 Tahun"],
-    icon: HiOutlineGlobeAlt,
-    color: "#4F46E5",
+    icon: HiOutlineRocketLaunch,
+    titleKey: "adv1Title",
+    descKey: "adv1Desc",
+    pointsKey: "adv1Points",
+    color: "from-indigo-500 to-purple-500",
+    borderColor: "#6366F1",
   },
   {
-    name: "Web Aplikasi",
-    description: "Aplikasi berbasis web custom sesuai kebutuhan bisnis. Sistem kasir, inventory, CRM, dll.",
-    features: ["Custom Dashboard", "Multi User & Role", "Database & REST API"],
-    icon: HiOutlineCodeBracket,
-    color: "#7C3AED",
+    icon: HiOutlineStar,
+    titleKey: "adv2Title",
+    descKey: "adv2Desc",
+    pointsKey: "adv2Points",
+    color: "from-amber-400 to-orange-500",
+    borderColor: "#F59E0B",
   },
   {
-    name: "Aplikasi Mobile",
-    description: "Aplikasi Android & iOS dengan React Native Expo. Satu codebase, tampil di Google Play & App Store.",
-    features: ["React Native (Expo)", "Push Notification", "Offline Mode"],
-    icon: HiOutlineDevicePhoneMobile,
-    color: "#2563EB",
+    icon: HiOutlineShieldCheck,
+    titleKey: "adv3Title",
+    descKey: "adv3Desc",
+    pointsKey: "adv3Points",
+    color: "from-emerald-400 to-teal-500",
+    borderColor: "#10B981",
   },
   {
-    name: "Maintenance & Support",
-    description: "Layanan perawatan, update, dan perbaikan website atau aplikasi yang sudah ada.",
-    features: ["Bug Fixing", "Update Fitur", "Backup Rutin"],
-    icon: HiOutlineWrenchScrewdriver,
-    color: "#059669",
+    icon: HiOutlineCurrencyDollar,
+    titleKey: "adv4Title",
+    descKey: "adv4Desc",
+    pointsKey: "adv4Points",
+    color: "from-pink-400 to-rose-500",
+    borderColor: "#EC4899",
+  },
+  {
+    icon: HiOutlinePaintBrush,
+    titleKey: "adv5Title",
+    descKey: "adv5Desc",
+    pointsKey: "adv5Points",
+    color: "from-cyan-400 to-blue-500",
+    borderColor: "#06B6D4",
+  },
+  {
+    icon: HiOutlineChatBubbleLeftRight,
+    titleKey: "adv6Title",
+    descKey: "adv6Desc",
+    pointsKey: "adv6Points",
+    color: "from-violet-400 to-purple-500",
+    borderColor: "#8B5CF6",
   },
 ];
 
-export default function ServicesPage() {
+export default function AdvantagesPage() {
   useScrollAnimation();
   const { dark, toggleDark, lang, toggleLang } = useThemeAndLang();
   const i = t[lang];
   const router = useRouter();
   const [contactOpen, setContactOpen] = useState(false);
-
-  const waNumber = "6283173495159";
-
-  const handleOrder = (serviceName) => {
-    const message = encodeURIComponent(`Halo kak, saya mau konsultasi untuk pembuatan ${serviceName}`);
-    window.open(`https://wa.me/${waNumber}?text=${message}`, "_blank");
-  };
 
   return (
     <div className="min-h-screen">
@@ -72,9 +87,8 @@ export default function ServicesPage() {
           </Link>
           <ul className="hidden md:flex items-center space-x-8">
             <li><Link href="/" className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer">{i.home}</Link></li>
-            <li><span className="text-sm font-bold text-indigo-600 dark:text-indigo-400 cursor-default">{i.services}</span></li>
-            <li><Link href="/advantages" className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer">{i.advantages}</Link></li>
-            <li><Link href="/#proses" className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer">{i.howItWorks}</Link></li>
+            <li><Link href="/services" className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer">{i.services}</Link></li>
+            <li><span className="text-sm font-bold text-indigo-600 dark:text-indigo-400 cursor-default">{i.advantages}</span></li>
             <li><a href="https://cv-gray-iota.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer">{i.portfolio}</a></li>
             <li className="relative">
               <button
@@ -140,48 +154,38 @@ export default function ServicesPage() {
       <section className="px-6 pt-16 pb-10">
         <div className="max-w-5xl mx-auto text-center animate-on-scroll">
           <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white leading-tight">
-            {i.servicesPageTitle} <span className="gradient-text">{lang === "id" ? "Kami" : ""}</span>
+            {i.advPageTitle} <span className="gradient-text">{lang === "id" ? "Kami" : "Us"}</span>
           </h1>
           <p className="text-slate-500 dark:text-slate-400 mt-4 max-w-xl mx-auto text-base md:text-lg leading-relaxed">
-            {i.servicesPageDesc}
+            {i.advPageDesc}
           </p>
           <div className="section-divider mx-auto mt-5" />
         </div>
       </section>
 
-      {/* ==================== SERVICES CARDS ==================== */}
+      {/* ==================== ADVANTAGES CARDS ==================== */}
       <section className="px-6 pb-20">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {services.map((service, index) => (
-              <div key={index} className={`animate-on-scroll delay-${index + 1} soft-card p-8 flex flex-col group hover:border-indigo-200 dark:hover:border-indigo-700`}>
-                <div className="flex items-start gap-5 mb-5">
-                  <div
-                    className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg"
-                    style={{ background: `linear-gradient(135deg, ${service.color}20, ${service.color}40)` }}
-                  >
-                    <service.icon className="text-3xl" style={{ color: service.color }} />
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-1">{i[`svc${index + 1}`]}</h4>
-                    <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{i[`svc${index + 1}Desc`]}</p>
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {advantages.map((adv, index) => (
+              <div key={index} className={`animate-on-scroll delay-${index + 1} soft-card p-8 flex flex-col group relative overflow-hidden`}>
+                {/* Top gradient bar */}
+                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${adv.color}`} />
+
+                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${adv.color} flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 group-hover:shadow-xl transition-all duration-300 animate-float`} style={{ animationDelay: `${index * 0.2}s` }}>
+                  <adv.icon className="text-2xl text-white" />
                 </div>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {i[`svc${index + 1}Feats`].map((feat, fi) => (
-                    <span key={fi} className="flex items-center gap-1 text-xs font-medium text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-900/30 px-3 py-1.5 rounded-lg border border-indigo-100 dark:border-indigo-800">
-                      <HiOutlineCheckCircle className="text-green-500" /> {feat}
-                    </span>
+
+                <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{i[adv.titleKey]}</h4>
+                <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-5">{i[adv.descKey]}</p>
+
+                <div className="mt-auto flex flex-col gap-2.5">
+                  {i[adv.pointsKey].map((point, pi) => (
+                    <div key={pi} className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
+                      <HiOutlineCheckCircle className="text-green-500 flex-shrink-0" />
+                      <span>{point}</span>
+                    </div>
                   ))}
-                </div>
-                <div className="flex items-center justify-center w-full mt-auto pt-5 border-t border-slate-100 dark:border-slate-700">
-                  <button
-                    onClick={() => handleOrder(i[`svc${index + 1}`])}
-                    className="soft-btn !py-2.5 !px-6 text-sm cursor-pointer inline-flex items-center gap-2"
-                  >
-                    <FaWhatsapp className="text-green-500" />
-                    {i.orderNow}
-                  </button>
                 </div>
               </div>
             ))}
@@ -201,10 +205,10 @@ export default function ServicesPage() {
               </div>
               <div className="text-center md:text-left">
                 <h3 className="text-2xl md:text-3xl font-extrabold text-white leading-snug">
-                  {i.ctaConfused}
+                  {i.ctaTitle}
                 </h3>
                 <p className="text-white/80 text-sm md:text-base mt-1">
-                  {i.ctaConfusedDesc} <span className="text-yellow-300 font-bold">{i.ctaFree}</span> {i.ctaConfusedDesc2}
+                  {i.ctaDesc} <span className="text-yellow-300 font-bold">{i.ctaFree}</span> {i.ctaDesc2}
                 </p>
               </div>
             </div>
@@ -216,7 +220,7 @@ export default function ServicesPage() {
                 className="group inline-flex items-center gap-2.5 bg-white text-indigo-700 font-extrabold px-8 py-3.5 rounded-xl hover:bg-yellow-300 hover:text-indigo-900 transition-all cursor-pointer shadow-xl hover:-translate-y-0.5 text-base whitespace-nowrap"
               >
                 <FaWhatsapp className="text-green-500 text-lg group-hover:scale-110 transition-transform" />
-                {i.chatNow}
+                {i.ctaBtn}
                 <HiOutlineArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
@@ -236,10 +240,9 @@ export default function ServicesPage() {
               <h3 className="font-semibold text-white mb-4">{i.navigation}</h3>
               <ul className="space-y-2">
                 <li><Link href="/" className="text-slate-400 hover:text-white text-sm transition-colors cursor-pointer">{i.home}</Link></li>
-                <li><span className="text-white text-sm font-semibold cursor-default">{i.services}</span></li>
-                <li><Link href="/advantages" className="text-slate-400 hover:text-white text-sm transition-colors cursor-pointer">{i.advantages}</Link></li>
+                <li><Link href="/services" className="text-slate-400 hover:text-white text-sm transition-colors cursor-pointer">{i.services}</Link></li>
+                <li><span className="text-white text-sm font-semibold cursor-default">{i.advantages}</span></li>
                 <li><Link href="/#proses" className="text-slate-400 hover:text-white text-sm transition-colors cursor-pointer">{i.howItWorks}</Link></li>
-                <li><a onClick={() => router.push("/contact")} className="text-slate-400 hover:text-white text-sm transition-colors cursor-pointer">{i.contact}</a></li>
               </ul>
             </div>
             <div>

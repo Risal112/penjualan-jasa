@@ -5,9 +5,6 @@ import Link from "next/link";
 import { FaWhatsapp, FaInstagram, FaMoon, FaSun } from "react-icons/fa";
 import {
   HiOutlineArrowRight,
-  HiOutlineStar,
-  HiOutlineShieldCheck,
-  HiOutlineRocketLaunch,
   HiOutlineMapPin,
   HiOutlineChatBubbleLeftRight,
   HiOutlineClipboardDocumentList,
@@ -226,6 +223,7 @@ export default function Home() {
           <ul className="hidden md:flex items-center space-x-8">
             <li><a href="#" className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer">{i.home}</a></li>
             <li><Link href="/services" className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer">{i.services}</Link></li>
+            <li><Link href="/advantages" className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer">{i.advantages}</Link></li>
             <li><a href="#proses" className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer">{i.howItWorks}</a></li>
             <li><a href="https://cv-gray-iota.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer">{i.portfolio}</a></li>
             <li className="relative">
@@ -391,32 +389,6 @@ export default function Home() {
               <p className="text-slate-500 dark:text-slate-400 text-sm mt-2 font-medium">{s.label}</p>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* ==================== 3. FEATURES / WHY CHOOSE US ==================== */}
-      <section className="px-6 py-20">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12 animate-on-scroll">
-            <span className="soft-badge inline-block mb-4">{i.whyUs}</span>
-            <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white">{i.featuresTitle}</h3>
-            <div className="section-divider mx-auto mt-4" />
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { icon: HiOutlineRocketLaunch, title: i.feat1Title, desc: i.feat1Desc, color: "from-indigo-500 to-purple-500" },
-              { icon: HiOutlineStar, title: i.feat2Title, desc: i.feat2Desc, color: "from-amber-400 to-orange-500" },
-              { icon: HiOutlineShieldCheck, title: i.feat3Title, desc: i.feat3Desc, color: "from-emerald-400 to-teal-500" },
-            ].map((f, idx) => (
-              <div key={idx} className={`animate-on-scroll delay-${idx + 1} soft-card p-8 text-center group`}>
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${f.color} flex items-center justify-center mx-auto mb-5 shadow-lg animate-float`} style={{ animationDelay: `${idx * 0.3}s` }}>
-                  <f.icon className="text-3xl text-white" />
-                </div>
-                <h4 className="font-bold text-lg text-slate-900 dark:text-white mb-2">{f.title}</h4>
-                <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">{f.desc}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -694,6 +666,7 @@ export default function Home() {
               <ul className="space-y-2">
                 <li><a href="#" className="text-slate-400 hover:text-white text-sm transition-colors cursor-pointer">{i.home}</a></li>
                 <li><Link href="/services" className="text-slate-400 hover:text-white text-sm transition-colors cursor-pointer">{i.services}</Link></li>
+                <li><Link href="/advantages" className="text-slate-400 hover:text-white text-sm transition-colors cursor-pointer">{i.advantages}</Link></li>
                 <li><a href="#proses" className="text-slate-400 hover:text-white text-sm transition-colors cursor-pointer">{i.howItWorks}</a></li>
                 <li><a onClick={() => router.push("/contact")} className="text-slate-400 hover:text-white text-sm transition-colors cursor-pointer">{i.contact}</a></li>
               </ul>

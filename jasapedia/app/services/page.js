@@ -70,16 +70,17 @@ export default function ServicesPage() {
           <Link href="/" className="text-2xl font-bold gradient-text cursor-pointer">
             JasaPedia
           </Link>
-          <ul className="hidden md:flex items-center space-x-8">
+          <ul className="hidden md:flex items-center space-x-4">
             <li><Link href="/" className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer">{i.home}</Link></li>
             <li><span className="text-sm font-bold text-indigo-600 dark:text-indigo-400 cursor-default">{i.services}</span></li>
             <li><Link href="/advantages" className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer">{i.advantages}</Link></li>
+            <li><Link href="/#testimoni" className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer">{i.testimonials}</Link></li>
             <li><Link href="/#proses" className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer">{i.howItWorks}</Link></li>
             <li><a href="https://cv-gray-iota.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer">{i.portfolio}</a></li>
             <li className="relative">
               <button
                 onClick={() => setContactOpen(!contactOpen)}
-                className="soft-btn !py-2 !px-4 text-sm cursor-pointer inline-flex items-center gap-1.5"
+                className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer inline-flex items-center gap-1.5"
               >
                 {i.contactUs}
                 <svg className={`w-3.5 h-3.5 transition-transform ${contactOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
@@ -139,13 +140,15 @@ export default function ServicesPage() {
       {/* ==================== HERO HEADER ==================== */}
       <section className="px-6 pt-16 pb-10">
         <div className="max-w-5xl mx-auto text-center animate-on-scroll">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white leading-tight">
-            {i.servicesPageTitle} <span className="gradient-text">{lang === "id" ? "Kami" : ""}</span>
-          </h1>
-          <p className="text-slate-500 dark:text-slate-400 mt-4 max-w-xl mx-auto text-base md:text-lg leading-relaxed">
+          <div className="inline-block">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white leading-tight">
+              {i.servicesPageTitle} <span className="gradient-text">{lang === "id" ? "Kami" : ""}</span>
+            </h1>
+            <span className="block h-1 mt-3 rounded-full bg-gradient-to-r from-indigo-400 to-purple-400" />
+          </div>
+          <p className="text-slate-500 dark:text-slate-400 mt-5 max-w-xl mx-auto text-base md:text-lg leading-relaxed">
             {i.servicesPageDesc}
           </p>
-          <div className="section-divider mx-auto mt-5" />
         </div>
       </section>
 

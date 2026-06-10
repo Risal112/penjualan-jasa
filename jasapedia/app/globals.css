@@ -309,6 +309,15 @@ body {
     radial-gradient(at 50% 50%, rgba(139, 92, 246, 0.04) 0%, transparent 50%);
 }
 
+/* Stats card gradient */
+.stats-card {
+  background: linear-gradient(135deg, #fff 0%, #F0EEFF 100%);
+}
+
+.dark .stats-card {
+  background: transparent;
+}
+
 /* ===== DARK MODE ===== */
 .dark body {
   background: linear-gradient(180deg, #0F172A 0%, #1E1B4B 30%, #0F172A 60%, #171530 100%);

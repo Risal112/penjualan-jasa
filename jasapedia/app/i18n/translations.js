@@ -3,6 +3,8 @@ export const t = {
     // Navbar
     home: "Home",
     services: "Layanan",
+    advantages: "Keunggulan",
+    testimonials: "Testimoni",
     howItWorks: "Cara Kerja",
     portfolio: "Portfolio",
     contactUs: "Hubungi Kami",
@@ -131,6 +133,8 @@ export const t = {
     // Navbar
     home: "Home",
     services: "Services",
+    advantages: "Advantages",
+    testimonials: "Testimonials",
     howItWorks: "How It Works",
     portfolio: "Portfolio",
     contactUs: "Contact Us",

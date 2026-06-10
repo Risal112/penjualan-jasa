@@ -220,16 +220,17 @@ export default function Home() {
           <h1 className="text-2xl font-bold gradient-text cursor-pointer" onClick={() => router.push("/")}>
             JasaPedia
           </h1>
-          <ul className="hidden md:flex items-center space-x-8">
+          <ul className="hidden md:flex items-center space-x-4">
             <li><a href="#" className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer">{i.home}</a></li>
             <li><Link href="/services" className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer">{i.services}</Link></li>
             <li><Link href="/advantages" className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer">{i.advantages}</Link></li>
+            <li><a href="#testimoni" className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer">{i.testimonials}</a></li>
             <li><a href="#proses" className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer">{i.howItWorks}</a></li>
             <li><a href="https://cv-gray-iota.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer">{i.portfolio}</a></li>
             <li className="relative">
               <button
                 onClick={() => setContactOpen(!contactOpen)}
-                className="soft-btn !py-2 !px-4 text-sm cursor-pointer inline-flex items-center gap-1.5"
+                className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer inline-flex items-center gap-1.5"
               >
                 {i.contactUs}
                 <svg className={`w-3.5 h-3.5 transition-transform ${contactOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
@@ -325,7 +326,7 @@ export default function Home() {
             {i.heroTitle1}{" "}
             <span className="relative inline-block">
               <span className="gradient-text">{i.heroTitle2}</span>
-              <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none"><path d="M2 8c40-6 80-6 120-2s60 4 76 0" stroke="url(#underline-grad)" strokeWidth="4" strokeLinecap="round"/><defs><linearGradient id="underline-grad" x1="0" y1="0" x2="200" y2="0"><stop offset="0%" stopColor="#818CF8"/><stop offset="100%" stopColor="#C084FC"/></linearGradient></defs></svg>
+              <span className="block h-1 mt-1 rounded-full bg-gradient-to-r from-indigo-400 to-purple-400" />
             </span>{" "}
             {i.heroTitle3}
           </h2>
@@ -380,7 +381,7 @@ export default function Home() {
 
       {/* ==================== 2. STATS COUNTER ==================== */}
       <section className="px-6 mt-10 relative z-10">
-        <div className="max-w-5xl mx-auto soft-card p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center stagger-children dark:bg-slate-800/80" style={{ background: dark ? undefined : "linear-gradient(135deg, #fff 0%, #F0EEFF 100%)" }}>
+        <div className="max-w-5xl mx-auto soft-card p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center stagger-children dark:bg-slate-800/80 stats-card">
           {stats.map((s, i) => (
             <div key={i}>
               <div className="counter-number">
@@ -395,8 +396,10 @@ export default function Home() {
       {/* ==================== 4. TECH STACK ==================== */}
       <section className="px-6 py-16">
         <div className="max-w-4xl mx-auto text-center animate-on-scroll">
-          <span className="soft-badge inline-block mb-4">{i.techBadge}</span>
-          <h3 className="text-3xl font-extrabold text-slate-900 dark:text-white mb-3">{i.techTitle}</h3>
+          <div className="inline-block mb-5">
+            <h3 className="text-3xl font-extrabold text-slate-900 dark:text-white">{i.techTitle}</h3>
+            <span className="block h-1 mt-2 rounded-full bg-gradient-to-r from-indigo-400 to-purple-400" />
+          </div>
           <p className="text-slate-500 dark:text-slate-400 text-sm mb-10">{i.techDesc}</p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 stagger-children">
             {techStack.map((tech, i) => (
@@ -414,10 +417,11 @@ export default function Home() {
       <section id="proses" className="px-6 py-20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14 animate-on-scroll">
-            <span className="soft-badge inline-block mb-4">{i.processBadge}</span>
-            <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white">{i.processTitle}</h3>
-            <p className="text-slate-500 dark:text-slate-400 mt-3">{i.processDesc}</p>
-            <div className="section-divider mx-auto mt-4" />
+            <div className="inline-block">
+              <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white">{i.processTitle}</h3>
+              <span className="block h-1 mt-3 rounded-full bg-gradient-to-r from-indigo-400 to-purple-400" />
+            </div>
+            <p className="text-slate-500 dark:text-slate-400 mt-5">{i.processDesc}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -479,13 +483,13 @@ export default function Home() {
       </section>
 
       {/* ==================== 8. TESTIMONIALS (WA Screenshots) ==================== */}
-      <section className="px-6 py-20">
+      <section id="testimoni" className="px-6 py-20">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14 animate-on-scroll">
-            <span className="soft-badge inline-block mb-4">{i.testiBadge}</span>
-            <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white">{i.testiTitle}</h3>
-            <p className="text-slate-500 dark:text-slate-400 text-sm mt-3">{i.testiDesc}</p>
-            <div className="section-divider mx-auto mt-4" />
+            <div className="inline-block">
+              <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white">{i.testiTitle}</h3>
+              <span className="block h-1 mt-3 rounded-full bg-gradient-to-r from-indigo-400 to-purple-400" />
+            </div>
           </div>
 
           {/* Carousel */}

@@ -69,7 +69,7 @@ export default function Home() {
 
   const testimonials = [
     {
-      name: "Budi S.", role: "Owner Toko Online", phone: "+62 812-7349", last4: "5159",
+      name: "Budi S.", role: "Owner Toko Online", phone: "+62 812-7349", last4: "5159", avatar: "👨‍💼",
       messages: [
         { from: "client", text: "Kak, website-nya udah jadi ya? Keren banget! 😍" },
         { from: "client", text: "Penjualan saya naik 40% sejak punya website ini 👍" },
@@ -77,7 +77,7 @@ export default function Home() {
       ],
     },
     {
-      name: "Sari W.", role: "CEO Startup", phone: "+62 853-4821", last4: "9217",
+      name: "Sari W.", role: "CEO Startup", phone: "+62 853-4821", last4: "9217", avatar: "👩‍💼",
       messages: [
         { from: "client", text: "Aplikasi-nya stabil banget, user-friendly lagi 👌" },
         { from: "client", text: "Tim-nya responsif, support-nya mantap!" },
@@ -85,7 +85,7 @@ export default function Home() {
       ],
     },
     {
-      name: "Andi P.", role: "Manager Restoran", phone: "+62 821-5690", last4: "3456",
+      name: "Andi P.", role: "Manager Restoran", phone: "+62 821-5690", last4: "3456", avatar: "👨‍🍳",
       messages: [
         { from: "client", text: "Sistem kasir-nya sangat membantu operasional 👏" },
         { from: "client", text: "Pengerjaan cepat dan sesuai budget. Mantap!" },
@@ -93,7 +93,7 @@ export default function Home() {
       ],
     },
     {
-      name: "Dewi R.", role: "Owner Butik", phone: "+62 878-2109", last4: "8892",
+      name: "Dewi R.", role: "Owner Butik", phone: "+62 878-2109", last4: "8892", avatar: "👩‍🎨",
       messages: [
         { from: "client", text: "Website butik-nya cantik banget kak! 🛍️" },
         { from: "client", text: "Customer saya pada suka, order jadi makin gampang" },
@@ -101,7 +101,7 @@ export default function Home() {
       ],
     },
     {
-      name: "Rudi H.", role: "Direktur Logistik", phone: "+62 856-3074", last4: "6541",
+      name: "Rudi H.", role: "Direktur Logistik", phone: "+62 856-3074", last4: "6541", avatar: "🧑‍💼",
       messages: [
         { from: "client", text: "Aplikasi tracking-nya bagus, karyawan mudah pakai" },
         { from: "client", text: "Efisiensi kerja naik 60% sejak pakai sistem ini" },
@@ -109,7 +109,7 @@ export default function Home() {
       ],
     },
     {
-      name: "Lina M.", role: "Founder Bimbel", phone: "+62 838-7421", last4: "2083",
+      name: "Lina M.", role: "Founder Bimbel", phone: "+62 838-7421", last4: "2083", avatar: "👩‍🏫",
       messages: [
         { from: "client", text: "Web bimbel-nya keren, parent bisa pantau anak langsung 📚" },
         { from: "client", text: "Pendaftaran online jadi lebih rapi dan tertata" },
@@ -117,7 +117,7 @@ export default function Home() {
       ],
     },
     {
-      name: "Fajar K.", role: "Owner Gym", phone: "+62 813-9502", last4: "4728",
+      name: "Fajar K.", role: "Owner Gym", phone: "+62 813-9502", last4: "4728", avatar: "🏋️",
       messages: [
         { from: "client", text: "Aplikasi booking kelas-nya smooth banget kak 💪" },
         { from: "client", text: "Member pada bilang enak pakai-nya, ga ribet" },
@@ -125,7 +125,7 @@ export default function Home() {
       ],
     },
     {
-      name: "Mega S.", role: "Owner Katering", phone: "+62 857-1048", last4: "7765",
+      name: "Mega S.", role: "Owner Katering", phone: "+62 857-1048", last4: "7765", avatar: "👩‍🍳",
       messages: [
         { from: "client", text: "Website katering-nya bikin order naik 2x lipat! 🍱" },
         { from: "client", text: "Fitur pilih menu-nya customer suka banget" },
@@ -133,7 +133,7 @@ export default function Home() {
       ],
     },
     {
-      name: "Yoga P.", role: "CEO Agency", phone: "+62 822-6310", last4: "5519",
+      name: "Yoga P.", role: "CEO Agency", phone: "+62 822-6310", last4: "5519", avatar: "🧑‍💻",
       messages: [
         { from: "client", text: "Dashboard analytics-nya detail banget kak" },
         { from: "client", text: "Bantu kami ambil keputusan lebih cepat dan akurat 📊" },
@@ -141,7 +141,7 @@ export default function Home() {
       ],
     },
     {
-      name: "Nita A.", role: "Owner Salon", phone: "+62 896-5283", last4: "0474",
+      name: "Nita A.", role: "Owner Salon", phone: "+62 896-5283", last4: "0474", avatar: "💇‍♀️",
       messages: [
         { from: "client", text: "App booking salon-nya bagus! Customer bisa pilih stylist sendiri 💇‍♀️" },
         { from: "client", text: "No-show berkurang 70% karena ada reminder otomatis" },
@@ -149,7 +149,7 @@ export default function Home() {
       ],
     },
     {
-      name: "Hendra T.", role: "Owner Properti", phone: "+62 811-8734", last4: "2052",
+      name: "Hendra T.", role: "Owner Properti", phone: "+62 811-8734", last4: "2052", avatar: "🏠",
       messages: [
         { from: "client", text: "Website listing properti-nya profesional banget 🏠" },
         { from: "client", text: "Lead masuk 3x lebih banyak dari sebelumnya" },
@@ -157,7 +157,7 @@ export default function Home() {
       ],
     },
     {
-      name: "Ratna D.", role: "Owner Klinik", phone: "+62 852-4061", last4: "8938",
+      name: "Ratna D.", role: "Owner Klinik", phone: "+62 852-4061", last4: "8938", avatar: "👩‍⚕️",
       messages: [
         { from: "client", text: "Sistem booking klinik-nya sangat membantu 🏥" },
         { from: "client", text: "Pasien bisa antri online, ga perlu nunggu lama" },
@@ -165,7 +165,7 @@ export default function Home() {
       ],
     },
     {
-      name: "Dimas R.", role: "Founder EdTech", phone: "+62 877-9520", last4: "3161",
+      name: "Dimas R.", role: "Founder EdTech", phone: "+62 877-9520", last4: "3161", avatar: "👨‍💻",
       messages: [
         { from: "client", text: "Platform e-learning-nya keren, student engagement naik 📱" },
         { from: "client", text: "Fitur quiz dan progress tracking-nya mantap!" },
@@ -173,7 +173,7 @@ export default function Home() {
       ],
     },
     {
-      name: "Putri L.", role: "Owner Wedding Organizer", phone: "+62 819-6472", last4: "1847",
+      name: "Putri L.", role: "Owner Wedding Organizer", phone: "+62 819-6472", last4: "1847", avatar: "👰",
       messages: [
         { from: "client", text: "Website WO-nya elegant banget kak! 💒" },
         { from: "client", text: "Calon client langsung percaya lihat portofolionya" },
@@ -181,7 +181,7 @@ export default function Home() {
       ],
     },
     {
-      name: "Agus W.", role: "Owner Bengkel", phone: "+62 831-2950", last4: "7186",
+      name: "Agus W.", role: "Owner Bengkel", phone: "+62 831-2950", last4: "7186", avatar: "🧑‍🔧",
       messages: [
         { from: "client", text: "App booking servis kendaraan-nya praktis banget 🚗" },
         { from: "client", text: "Customer tinggal pilih jadwal, ga perlu telpon lagi" },
@@ -586,19 +586,29 @@ export default function Home() {
                         <div className="bg-[#075E54] px-1 pb-2 pt-[6px] flex items-center">
                           {/* Back Arrow */}
                           <button className="p-1.5 flex-shrink-0">
-                            <svg className="w-[18px] h-[18px] text-white" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                            <svg className="w-[22px] h-[22px] text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
                           </button>
                           {/* Avatar */}
-                          <div className="w-[34px] h-[34px] rounded-full bg-[#62787E] flex items-center justify-center flex-shrink-0 ml-0.5">
-                            <svg className="w-[20px] h-[20px] text-[#CFD9DC]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                          <div className="w-[36px] h-[36px] rounded-full bg-[#62787E] flex items-center justify-center flex-shrink-0 ml-0.5 text-[16px] relative overflow-hidden">
+                            <span className="opacity-0">{t.avatar}</span>
+                            <span className="absolute inset-0 bg-[#4a5c62]" />
+                            <span className="absolute w-[200%] h-[10px] bg-black rounded-full top-[0%] left-[-50%] rotate-[-28deg]" />
+                            <span className="absolute w-[200%] h-[9px] bg-black rounded-full top-[12%] left-[-50%] rotate-[20deg]" />
+                            <span className="absolute w-[200%] h-[10px] bg-black rounded-full top-[24%] left-[-50%] rotate-[-15deg]" />
+                            <span className="absolute w-[200%] h-[9px] bg-black rounded-full top-[36%] left-[-50%] rotate-[25deg]" />
+                            <span className="absolute w-[200%] h-[10px] bg-black rounded-full top-[48%] left-[-50%] rotate-[-20deg]" />
+                            <span className="absolute w-[200%] h-[9px] bg-black rounded-full top-[60%] left-[-50%] rotate-[16deg]" />
+                            <span className="absolute w-[200%] h-[10px] bg-black rounded-full top-[72%] left-[-50%] rotate-[-12deg]" />
+                            <span className="absolute w-[200%] h-[9px] bg-black rounded-full top-[84%] left-[-50%] rotate-[22deg]" />
+                            <span className="absolute w-[200%] h-[10px] bg-black rounded-full top-[95%] left-[-50%] rotate-[-18deg]" />
                           </div>
                           {/* Name / Number + Status */}
                           <div className="flex-1 min-w-0 ml-2 overflow-hidden">
                             <div className="flex items-center whitespace-nowrap">
-                              <span className="text-white font-normal text-[14.5px] leading-tight">{t.phone}-</span>
+                              <span className="text-white font-normal text-[13px] leading-tight">{t.phone}-</span>
                               <span className="relative inline-block ml-[3px]">
-                                <span className="text-white font-normal text-[14.5px] leading-tight">{t.last4}</span>
-                                <span className="absolute inset-x-[-4px] top-[15%] h-[75%] bg-black rounded-[3px]" />
+                                <span className="text-white font-normal text-[13px] leading-tight">{t.last4}</span>
+                                <span className="absolute inset-x-[-4px] top-[2px] h-[15px] bg-black rounded-[2px]" />
                               </span>
                             </div>
                             <p className="text-[#A5BDB9] text-[12px] leading-tight mt-[1px]">online</p>

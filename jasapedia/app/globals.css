@@ -309,6 +309,57 @@ body {
     radial-gradient(at 50% 50%, rgba(139, 92, 246, 0.04) 0%, transparent 50%);
 }
 
+/* ===== DARK MODE ===== */
+.dark body {
+  background: linear-gradient(180deg, #0F172A 0%, #1E1B4B 30%, #0F172A 60%, #171530 100%);
+  background-attachment: fixed;
+  color: #E2E8F0;
+}
+
+.dark .nav-glass {
+  background: rgba(15, 23, 42, 0.92);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.15);
+}
+
+.dark .soft-card {
+  background: #1E293B;
+  border-color: rgba(99, 102, 241, 0.15);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+.dark .soft-card:hover {
+  box-shadow: 0 12px 40px rgba(99, 102, 241, 0.15);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.dark .soft-badge {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
+  color: #A5B4FC;
+  border-color: rgba(99, 102, 241, 0.2);
+}
+
+.dark .section-divider {
+  background: linear-gradient(135deg, #818CF8, #C084FC);
+}
+
+.dark .bg-gradient-mesh {
+  background: 
+    radial-gradient(at 20% 80%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+    radial-gradient(at 80% 20%, rgba(139, 92, 246, 0.06) 0%, transparent 50%);
+}
+
+.dark .counter-number {
+  background: linear-gradient(135deg, #818CF8, #C084FC, #F0ABFC);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.dark .gradient-text {
+  background: linear-gradient(135deg, #818CF8, #C084FC, #F0ABFC);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .soft-card,
   .soft-btn,

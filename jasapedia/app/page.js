@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { FaWhatsapp, FaInstagram } from "react-icons/fa";
+import { FaWhatsapp, FaInstagram, FaMoon, FaSun } from "react-icons/fa";
 import {
   HiOutlineArrowRight,
   HiOutlineStar,
@@ -15,11 +15,15 @@ import {
   HiOutlineCursorArrowRays,
 } from "react-icons/hi2";
 import { useScrollAnimation } from "./hooks/useScrollAnimation";
+import { useThemeAndLang } from "./hooks/useThemeAndLang";
+import { t } from "./i18n/translations";
 import { useEffect, useState } from "react";
 
 export default function Home() {
   const router = useRouter();
   useScrollAnimation();
+  const { dark, toggleDark, lang, toggleLang } = useThemeAndLang();
+  const i = t[lang];
 
   useEffect(() => {
     const counters = document.querySelectorAll("[data-count]");
@@ -51,17 +55,17 @@ export default function Home() {
   }, []);
 
   const stats = [
-    { number: 50, suffix: "+", label: "Proyek Selesai" },
-    { number: 40, suffix: "+", label: "Klien Puas" },
-    { number: 3, suffix: "+", label: "Tahun Pengalaman" },
-    { number: 99, suffix: "%", label: "Tingkat Kepuasan" },
+    { number: 40, suffix: "+", label: i.projectDone },
+    { number: 20, suffix: "+", label: i.happyClients },
+    { number: 2, suffix: "+", label: i.yearsExp },
+    { number: 89, suffix: "%", label: i.satisfaction },
   ];
 
   const processSteps = [
-    { icon: HiOutlineChatBubbleLeftRight, title: "Konsultasi", desc: "Diskusikan ide dan kebutuhan Anda bersama kami secara gratis" },
-    { icon: HiOutlineClipboardDocumentList, title: "Perencanaan", desc: "Kami susun proposal, timeline, dan estimasi biaya yang transparan" },
-    { icon: HiOutlinePaintBrush, title: "Desain & Development", desc: "Tim kami membangun produk Anda dengan teknologi terkini" },
-    { icon: HiOutlineCursorArrowRays, title: "Delivery & Support", desc: "Produk siap digunakan dengan garansi dan dukungan teknis" },
+    { icon: HiOutlineChatBubbleLeftRight, title: i.step1, desc: i.step1Desc },
+    { icon: HiOutlineClipboardDocumentList, title: i.step2, desc: i.step2Desc },
+    { icon: HiOutlinePaintBrush, title: i.step3, desc: i.step3Desc },
+    { icon: HiOutlineCursorArrowRays, title: i.step4, desc: i.step4Desc },
   ];
 
   const testimonials = [
@@ -220,30 +224,30 @@ export default function Home() {
             JasaPedia
           </h1>
           <ul className="hidden md:flex items-center space-x-8">
-            <li><a href="#" className="text-sm font-medium text-slate-700 hover:text-indigo-600 transition-colors cursor-pointer">Home</a></li>
-            <li><Link href="/services" className="text-sm font-medium text-slate-700 hover:text-indigo-600 transition-colors cursor-pointer">Layanan</Link></li>
-            <li><a href="#proses" className="text-sm font-medium text-slate-700 hover:text-indigo-600 transition-colors cursor-pointer">Cara Kerja</a></li>
-            <li><a href="https://cv-gray-iota.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-slate-700 hover:text-indigo-600 transition-colors cursor-pointer">Portfolio</a></li>
+            <li><a href="#" className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer">{i.home}</a></li>
+            <li><Link href="/services" className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer">{i.services}</Link></li>
+            <li><a href="#proses" className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer">{i.howItWorks}</a></li>
+            <li><a href="https://cv-gray-iota.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer">{i.portfolio}</a></li>
             <li className="relative">
               <button
                 onClick={() => setContactOpen(!contactOpen)}
-                className="soft-btn !py-2 !px-5 text-sm cursor-pointer inline-flex items-center gap-1.5"
+                className="soft-btn !py-2 !px-4 text-sm cursor-pointer inline-flex items-center gap-1.5"
               >
-                Hubungi Kami
+                {i.contactUs}
                 <svg className={`w-3.5 h-3.5 transition-transform ${contactOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
               </button>
               {contactOpen && (
-                <div className="absolute right-0 top-full mt-2 bg-white rounded-xl shadow-xl border border-slate-100 py-2 min-w-[180px] z-50" style={{ animation: "fadeInDown 0.2s ease-out" }}>
+                <div className="absolute right-0 top-full mt-2 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-100 dark:border-slate-700 py-2 min-w-[180px] z-50" style={{ animation: "fadeInDown 0.2s ease-out" }}>
                   <a
                     href="https://wa.me/6283173495159?text=Halo%20kak%2C%20saya%20mau%20konsultasi"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 px-4 py-2.5 hover:bg-green-50 transition-colors cursor-pointer"
+                    className="flex items-center gap-3 px-4 py-2.5 hover:bg-green-50 dark:hover:bg-green-900/30 transition-colors cursor-pointer"
                     onClick={() => setContactOpen(false)}
                   >
                     <FaWhatsapp className="text-green-500 text-lg" />
                     <div>
-                      <p className="text-sm font-semibold text-slate-800">WhatsApp</p>
+                      <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">{i.whatsapp}</p>
                       <p className="text-[11px] text-slate-400">0831-7349-5159</p>
                     </div>
                   </a>
@@ -251,17 +255,34 @@ export default function Home() {
                     href="https://www.instagram.com/yourprofile"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 px-4 py-2.5 hover:bg-pink-50 transition-colors cursor-pointer"
+                    className="flex items-center gap-3 px-4 py-2.5 hover:bg-pink-50 dark:hover:bg-pink-900/30 transition-colors cursor-pointer"
                     onClick={() => setContactOpen(false)}
                   >
                     <FaInstagram className="text-pink-500 text-lg" />
                     <div>
-                      <p className="text-sm font-semibold text-slate-800">Instagram</p>
+                      <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">{i.instagram}</p>
                       <p className="text-[11px] text-slate-400">@jasapedia</p>
                     </div>
                   </a>
                 </div>
               )}
+            </li>
+            {/* Dark Mode + Language Toggles */}
+            <li className="flex items-center gap-1.5">
+              <button
+                onClick={toggleDark}
+                className="w-8 h-8 rounded-lg flex items-center justify-center bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors cursor-pointer"
+                title={dark ? "Light Mode" : "Dark Mode"}
+              >
+                {dark ? <FaSun className="text-yellow-400 text-sm" /> : <FaMoon className="text-slate-600 text-sm" />}
+              </button>
+              <button
+                onClick={toggleLang}
+                className="h-8 px-2 rounded-lg flex items-center justify-center bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors cursor-pointer text-xs font-bold text-slate-600 dark:text-slate-300"
+                title={lang === "id" ? "Switch to English" : "Ganti ke Bahasa Indonesia"}
+              >
+                {lang === "id" ? "EN" : "ID"}
+              </button>
             </li>
           </ul>
         </div>
@@ -270,9 +291,9 @@ export default function Home() {
       {/* ==================== 1. HERO ==================== */}
       <section className="relative px-6 pt-20 pb-28 overflow-hidden">
         {/* Animated Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-purple-50 pointer-events-none" />
-        <div className="absolute top-10 right-0 w-[500px] h-[500px] bg-indigo-200 rounded-full mix-blend-multiply filter blur-[100px] opacity-30 animate-pulse" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-200 rounded-full mix-blend-multiply filter blur-[100px] opacity-25" style={{ animation: "pulse 4s ease-in-out infinite alternate" }} />
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-slate-900 dark:via-slate-800 dark:to-indigo-950 pointer-events-none" />
+        <div className="absolute top-10 right-0 w-[500px] h-[500px] bg-indigo-200 dark:bg-indigo-900/30 rounded-full mix-blend-multiply filter blur-[100px] opacity-30 animate-pulse" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-200 dark:bg-purple-900/20 rounded-full mix-blend-multiply filter blur-[100px] opacity-25" style={{ animation: "pulse 4s ease-in-out infinite alternate" }} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-pink-100 rounded-full filter blur-[120px] opacity-20" />
 
         {/* Floating Tech Icons */}
@@ -294,39 +315,39 @@ export default function Home() {
 
         <div className="relative max-w-5xl mx-auto text-center">
           {/* Badge */}
-          <div className="hero-animate hero-animate-d1 inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-indigo-100 rounded-full px-5 py-2 mb-8 shadow-sm">
+          <div className="hero-animate hero-animate-d1 inline-flex items-center gap-2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-indigo-100 dark:border-indigo-800 rounded-full px-5 py-2 mb-8 shadow-sm">
             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            <span className="text-sm font-medium text-indigo-700">Web & App Development</span>
-            <span className="text-indigo-300">|</span>
-            <span className="text-sm text-slate-500">JasaPedia</span>
+            <span className="text-sm font-medium text-indigo-700 dark:text-indigo-300">{i.badge}</span>
+            <span className="text-indigo-300 dark:text-indigo-600">|</span>
+            <span className="text-sm text-slate-500 dark:text-slate-400">JasaPedia</span>
           </div>
 
           {/* Main Heading */}
-          <h2 className="hero-animate hero-animate-d2 text-5xl md:text-7xl font-extrabold leading-[1.1] mb-6 text-slate-900">
-            Wujudkan{" "}
+          <h2 className="hero-animate hero-animate-d2 text-5xl md:text-7xl font-extrabold leading-[1.1] mb-6 text-slate-900 dark:text-white">
+            {i.heroTitle1}{" "}
             <span className="relative inline-block">
-              <span className="gradient-text">Ide Digital</span>
+              <span className="gradient-text">{i.heroTitle2}</span>
               <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none"><path d="M2 8c40-6 80-6 120-2s60 4 76 0" stroke="url(#underline-grad)" strokeWidth="4" strokeLinecap="round"/><defs><linearGradient id="underline-grad" x1="0" y1="0" x2="200" y2="0"><stop offset="0%" stopColor="#818CF8"/><stop offset="100%" stopColor="#C084FC"/></linearGradient></defs></svg>
             </span>{" "}
-            Anda
+            {i.heroTitle3}
           </h2>
 
           {/* Subtitle */}
-          <p className="hero-animate hero-animate-d3 text-lg md:text-xl text-slate-500 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Kami membangun website dan aplikasi profesional yang{" "}
-            <span className="text-slate-700 font-semibold">modern, cepat</span>, dan sesuai kebutuhan bisnis Anda.{" "}
-            <span className="text-indigo-600 font-semibold">Dari konsep hingga jadi.</span>
+          <p className="hero-animate hero-animate-d3 text-lg md:text-xl text-slate-500 dark:text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+            {i.heroDesc1}{" "}
+            <span className="text-slate-700 dark:text-slate-200 font-semibold">{i.heroDescBold}</span>{i.heroDesc2}{" "}
+            <span className="text-indigo-600 dark:text-indigo-400 font-semibold">{i.heroDescHighlight}</span>
           </p>
 
           {/* CTA Buttons */}
           <div className="hero-animate hero-animate-d4 flex justify-center gap-4 flex-wrap">
             <Link
               href="/services"
-              className="group relative inline-flex items-center gap-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold px-8 py-4 rounded-2xl hover:shadow-xl hover:shadow-indigo-200 hover:-translate-y-1 transition-all duration-300 text-base cursor-pointer overflow-hidden"
+              className="group relative inline-flex items-center gap-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold px-8 py-4 rounded-2xl hover:shadow-xl hover:shadow-indigo-200 dark:hover:shadow-indigo-900/50 hover:-translate-y-1 transition-all duration-300 text-base cursor-pointer overflow-hidden"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-indigo-700 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <span className="relative flex items-center gap-2.5">
-                Lihat Layanan
+                {i.viewServices}
                 <HiOutlineArrowRight className="group-hover:translate-x-1 transition-transform" />
               </span>
             </Link>
@@ -334,40 +355,40 @@ export default function Home() {
               href="https://wa.me/6283173495159?text=Halo%20kak%2C%20saya%20mau%20konsultasi"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2.5 bg-white text-indigo-700 font-bold px-8 py-4 rounded-2xl border-2 border-indigo-100 hover:border-indigo-300 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 text-base cursor-pointer"
+              className="group inline-flex items-center gap-2.5 bg-white dark:bg-slate-800 text-indigo-700 dark:text-indigo-300 font-bold px-8 py-4 rounded-2xl border-2 border-indigo-100 dark:border-indigo-800 hover:border-indigo-300 dark:hover:border-indigo-600 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 text-base cursor-pointer"
             >
               <FaWhatsapp className="text-green-500 text-xl group-hover:scale-110 transition-transform" />
-              Konsultasi Gratis
+              {i.freeConsult}
             </a>
           </div>
 
           {/* Trust Indicators */}
           <div className="hero-animate hero-animate-d4 mt-12 flex items-center justify-center gap-6 flex-wrap">
-            <div className="flex items-center gap-2 text-sm text-slate-500">
+            <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
               <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/></svg>
-              <span>100% Gratis Konsultasi</span>
+              <span>{i.trustFree}</span>
             </div>
-            <div className="flex items-center gap-2 text-sm text-slate-500">
+            <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
               <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/></svg>
-              <span>Revisi Unlimited</span>
+              <span>{i.trustRevision}</span>
             </div>
-            <div className="flex items-center gap-2 text-sm text-slate-500">
+            <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
               <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/></svg>
-              <span>Garansi 1 Tahun</span>
+              <span>{i.trustWarranty}</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* ==================== 2. STATS COUNTER ==================== */}
-      <section className="px-6 -mt-16 relative z-10">
-        <div className="max-w-5xl mx-auto soft-card p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center stagger-children" style={{ background: "linear-gradient(135deg, #fff 0%, #F0EEFF 100%)" }}>
+      <section className="px-6 mt-10 relative z-10">
+        <div className="max-w-5xl mx-auto soft-card p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center stagger-children dark:bg-slate-800/80" style={{ background: dark ? undefined : "linear-gradient(135deg, #fff 0%, #F0EEFF 100%)" }}>
           {stats.map((s, i) => (
             <div key={i}>
               <div className="counter-number">
                 <span data-count={s.number} data-suffix={s.suffix}>0{s.suffix}</span>
               </div>
-              <p className="text-slate-500 text-sm mt-2 font-medium">{s.label}</p>
+              <p className="text-slate-500 dark:text-slate-400 text-sm mt-2 font-medium">{s.label}</p>
             </div>
           ))}
         </div>
@@ -377,22 +398,22 @@ export default function Home() {
       <section className="px-6 py-20">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12 animate-on-scroll">
-            <span className="soft-badge inline-block mb-4">Kenapa Kami?</span>
-            <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900">Keunggulan JasaPedia</h3>
+            <span className="soft-badge inline-block mb-4">{i.whyUs}</span>
+            <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white">{i.featuresTitle}</h3>
             <div className="section-divider mx-auto mt-4" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { icon: HiOutlineRocketLaunch, title: "Cepat & Tepat Waktu", desc: "Pengerjaan sesuai deadline yang disepakati tanpa kompromi kualitas", color: "from-indigo-500 to-purple-500" },
-              { icon: HiOutlineStar, title: "Kualitas Premium", desc: "Teknologi modern, code bersih, dan best practice internasional", color: "from-amber-400 to-orange-500" },
-              { icon: HiOutlineShieldCheck, title: "Garansi & Support", desc: "Garansi revisi, free bug fix, dan dukungan teknis pasca delivery", color: "from-emerald-400 to-teal-500" },
-            ].map((f, i) => (
-              <div key={i} className={`animate-on-scroll delay-${i + 1} soft-card p-8 text-center group`}>
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${f.color} flex items-center justify-center mx-auto mb-5 shadow-lg animate-float`} style={{ animationDelay: `${i * 0.3}s` }}>
+              { icon: HiOutlineRocketLaunch, title: i.feat1Title, desc: i.feat1Desc, color: "from-indigo-500 to-purple-500" },
+              { icon: HiOutlineStar, title: i.feat2Title, desc: i.feat2Desc, color: "from-amber-400 to-orange-500" },
+              { icon: HiOutlineShieldCheck, title: i.feat3Title, desc: i.feat3Desc, color: "from-emerald-400 to-teal-500" },
+            ].map((f, idx) => (
+              <div key={idx} className={`animate-on-scroll delay-${idx + 1} soft-card p-8 text-center group`}>
+                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${f.color} flex items-center justify-center mx-auto mb-5 shadow-lg animate-float`} style={{ animationDelay: `${idx * 0.3}s` }}>
                   <f.icon className="text-3xl text-white" />
                 </div>
-                <h4 className="font-bold text-lg text-slate-900 mb-2">{f.title}</h4>
-                <p className="text-sm text-slate-500 leading-relaxed">{f.desc}</p>
+                <h4 className="font-bold text-lg text-slate-900 dark:text-white mb-2">{f.title}</h4>
+                <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">{f.desc}</p>
               </div>
             ))}
           </div>
@@ -402,14 +423,14 @@ export default function Home() {
       {/* ==================== 4. TECH STACK ==================== */}
       <section className="px-6 py-16">
         <div className="max-w-4xl mx-auto text-center animate-on-scroll">
-          <span className="soft-badge inline-block mb-4">Teknologi</span>
-          <h3 className="text-3xl font-extrabold text-slate-900 mb-3">Stack yang Kami Gunakan</h3>
-          <p className="text-slate-500 text-sm mb-10">Teknologi modern dan terpercaya untuk membangun produk digital Anda</p>
+          <span className="soft-badge inline-block mb-4">{i.techBadge}</span>
+          <h3 className="text-3xl font-extrabold text-slate-900 dark:text-white mb-3">{i.techTitle}</h3>
+          <p className="text-slate-500 dark:text-slate-400 text-sm mb-10">{i.techDesc}</p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 stagger-children">
             {techStack.map((tech, i) => (
               <div key={i} className="soft-card flex items-center gap-3 px-5 py-4 hover:border-indigo-300 hover:-translate-y-2 hover:shadow-lg transition-all cursor-default">
                 <img src={tech.icon} alt={tech.name} width={32} height={32} className="w-8 h-8 flex-shrink-0" />
-                <span className="text-sm font-semibold text-slate-700">{tech.name}</span>
+                <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">{tech.name}</span>
               </div>
             ))}
           </div>
@@ -421,26 +442,26 @@ export default function Home() {
       <section id="proses" className="px-6 py-20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14 animate-on-scroll">
-            <span className="soft-badge inline-block mb-4">Cara Kerja</span>
-            <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900">4 Langkah Mudah</h3>
-            <p className="text-slate-500 mt-3">Dari ide hingga produk jadi, prosesnya simpel dan transparan</p>
+            <span className="soft-badge inline-block mb-4">{i.processBadge}</span>
+            <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white">{i.processTitle}</h3>
+            <p className="text-slate-500 dark:text-slate-400 mt-3">{i.processDesc}</p>
             <div className="section-divider mx-auto mt-4" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {processSteps.map((step, i) => (
-              <div key={i} className={`animate-on-scroll delay-${i + 1} text-center relative group`}>
-                {i < processSteps.length - 1 && (
+            {processSteps.map((step, idx) => (
+              <div key={idx} className={`animate-on-scroll delay-${idx + 1} text-center relative group`}>
+                {idx < processSteps.length - 1 && (
                   <div className="hidden md:block absolute top-10 left-[60%] w-[80%] h-0.5 bg-gradient-to-r from-indigo-200 to-purple-200" />
                 )}
                 <div className="relative z-10 w-20 h-20 rounded-2xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center mx-auto mb-5 shadow-lg shadow-indigo-200 group-hover:shadow-xl group-hover:shadow-purple-300 group-hover:-translate-y-1 transition-all duration-300">
                   <step.icon className="text-3xl text-white" />
                 </div>
                 <div className="absolute top-0 right-1/2 translate-x-[60%] -translate-y-2 w-7 h-7 rounded-full bg-gradient-to-br from-indigo-600 to-purple-600 text-white text-xs font-bold flex items-center justify-center shadow-lg">
-                  {i + 1}
+                  {idx + 1}
                 </div>
-                <h4 className="font-bold text-lg text-slate-900 mb-2">{step.title}</h4>
-                <p className="text-sm text-slate-500 leading-relaxed">{step.desc}</p>
+                <h4 className="font-bold text-lg text-slate-900 dark:text-white mb-2">{step.title}</h4>
+                <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -461,10 +482,10 @@ export default function Home() {
               </div>
               <div className="text-center md:text-left">
                 <h3 className="text-2xl md:text-3xl font-extrabold text-white leading-snug">
-                  Siap Memulai Proyek Anda?
+                  {i.ctaTitle}
                 </h3>
                 <p className="text-white/80 text-sm md:text-base mt-1">
-                  Konsultasikan ide Anda secara <span className="text-yellow-300 font-bold">GRATIS</span> &mdash; kami wujudkan solusi digital terbaik.
+                  {i.ctaDesc} <span className="text-yellow-300 font-bold">{i.ctaFree}</span> {i.ctaDesc2}
                 </p>
               </div>
             </div>
@@ -477,7 +498,7 @@ export default function Home() {
                 className="group inline-flex items-center gap-2.5 bg-white text-indigo-700 font-extrabold px-8 py-3.5 rounded-xl hover:bg-yellow-300 hover:text-indigo-900 transition-all cursor-pointer shadow-xl hover:-translate-y-0.5 text-base whitespace-nowrap"
               >
                 <FaWhatsapp className="text-green-500 text-lg group-hover:scale-110 transition-transform" />
-                Konsultasi Sekarang
+                {i.ctaBtn}
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
               </a>
             </div>
@@ -489,9 +510,9 @@ export default function Home() {
       <section className="px-6 py-20">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14 animate-on-scroll">
-            <span className="soft-badge inline-block mb-4">Testimoni</span>
-            <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900">Apa Kata Klien Kami</h3>
-            <p className="text-slate-500 text-sm mt-3">Percakapan asli dari klien kami via WhatsApp</p>
+            <span className="soft-badge inline-block mb-4">{i.testiBadge}</span>
+            <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white">{i.testiTitle}</h3>
+            <p className="text-slate-500 dark:text-slate-400 text-sm mt-3">{i.testiDesc}</p>
             <div className="section-divider mx-auto mt-4" />
           </div>
 
@@ -666,32 +687,32 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-10 border-b border-slate-700/50">
             <div>
               <h2 className="text-2xl font-bold mb-3">JasaPedia</h2>
-              <p className="text-slate-400 text-sm leading-relaxed">Solusi digital terpercaya untuk pembuatan website dan aplikasi profesional.</p>
+              <p className="text-slate-400 text-sm leading-relaxed">{i.footerDesc}</p>
             </div>
             <div>
-              <h3 className="font-semibold text-white mb-4">Navigasi</h3>
+              <h3 className="font-semibold text-white mb-4">{i.navigation}</h3>
               <ul className="space-y-2">
-                <li><a href="#" className="text-slate-400 hover:text-white text-sm transition-colors cursor-pointer">Home</a></li>
-                <li><Link href="/services" className="text-slate-400 hover:text-white text-sm transition-colors cursor-pointer">Layanan</Link></li>
-                <li><a href="#proses" className="text-slate-400 hover:text-white text-sm transition-colors cursor-pointer">Cara Kerja</a></li>
-                <li><a onClick={() => router.push("/contact")} className="text-slate-400 hover:text-white text-sm transition-colors cursor-pointer">Kontak</a></li>
+                <li><a href="#" className="text-slate-400 hover:text-white text-sm transition-colors cursor-pointer">{i.home}</a></li>
+                <li><Link href="/services" className="text-slate-400 hover:text-white text-sm transition-colors cursor-pointer">{i.services}</Link></li>
+                <li><a href="#proses" className="text-slate-400 hover:text-white text-sm transition-colors cursor-pointer">{i.howItWorks}</a></li>
+                <li><a onClick={() => router.push("/contact")} className="text-slate-400 hover:text-white text-sm transition-colors cursor-pointer">{i.contact}</a></li>
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold text-white mb-4">Layanan</h3>
+              <h3 className="font-semibold text-white mb-4">{i.servicesLabel}</h3>
               <ul className="space-y-2">
-                <li><span className="text-slate-400 text-sm">Website Company Profile</span></li>
-                <li><span className="text-slate-400 text-sm">Web Aplikasi</span></li>
-                <li><span className="text-slate-400 text-sm">Aplikasi Mobile</span></li>
-                <li><span className="text-slate-400 text-sm">Maintenance & Support</span></li>
+                <li><span className="text-slate-400 text-sm">{i.svc1}</span></li>
+                <li><span className="text-slate-400 text-sm">{i.svc2}</span></li>
+                <li><span className="text-slate-400 text-sm">{i.svc3}</span></li>
+                <li><span className="text-slate-400 text-sm">{i.svc4}</span></li>
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold text-white mb-4">Hubungi Kami</h3>
+              <h3 className="font-semibold text-white mb-4">{i.contactLabel}</h3>
               <ul className="space-y-3">
                 <li className="flex items-start gap-2">
                   <HiOutlineMapPin className="text-indigo-400 mt-0.5 flex-shrink-0" />
-                  <span className="text-slate-400 text-sm">Jl. Contoh Alamat No. 123, Kota Anda</span>
+                  <span className="text-slate-400 text-sm">{i.address}</span>
                 </li>
                 <li>
                   <a href="https://wa.me/6283173495159" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-slate-400 hover:text-green-400 text-sm transition-colors cursor-pointer">
@@ -717,8 +738,8 @@ export default function Home() {
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 flex items-center gap-3 cursor-pointer no-underline"
       >
-        <span className="bg-white text-slate-800 text-sm font-semibold px-4 py-2 rounded-lg shadow-md">
-          Ayo Konsultasikan Sekarang!
+        <span className="bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 text-sm font-semibold px-4 py-2 rounded-lg shadow-md">
+          {i.floatingWA}
         </span>
         <div className="bg-green-500 w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex-shrink-0 pulse-glow">
           <FaWhatsapp className="text-white text-3xl" />

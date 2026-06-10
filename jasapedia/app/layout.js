@@ -7,7 +7,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "JasaPedia - Web & App Development Services",
+  title: "Manjurdigitallis - Web & App Development Services",
   description: "Jasa pembuatan website dan aplikasi profesional. Company profile, web app, mobile app, dan maintenance.",
 };
 

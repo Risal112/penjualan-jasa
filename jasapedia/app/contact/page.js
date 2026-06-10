@@ -11,7 +11,7 @@ export default function Contact() {
     {
       name: "Instagram",
       icon: FaInstagram,
-      url: "https://www.instagram.com/yourprofile",
+      url: "https://www.instagram.com/manjurdigitallis?igsh=djNlMW05a2ZtYnVr",
       color: "#E1306C",
       bg: "#FDE8EF",
       desc: "Follow kami untuk update terbaru",

@@ -68,7 +68,7 @@ export default function ServicesPage() {
       <nav className="nav-glass sticky top-0 z-50 px-6 py-4">
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           <Link href="/" className="text-2xl font-bold gradient-text cursor-pointer">
-            JasaPedia
+            Manjurdigitallis
           </Link>
           <ul className="hidden md:flex items-center space-x-4">
             <li><Link href="/" className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer">{i.home}</Link></li>
@@ -101,7 +101,7 @@ export default function ServicesPage() {
                     </div>
                   </a>
                   <a
-                    href="https://www.instagram.com/yourprofile"
+                    href="https://www.instagram.com/manjurdigitallis?igsh=djNlMW05a2ZtYnVr"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 px-4 py-2.5 hover:bg-pink-50 dark:hover:bg-pink-900/30 transition-colors cursor-pointer"
@@ -110,7 +110,7 @@ export default function ServicesPage() {
                     <FaInstagram className="text-pink-500 text-lg" />
                     <div>
                       <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">{i.instagram}</p>
-                      <p className="text-[11px] text-slate-400">@jasapedia</p>
+                      <p className="text-[11px] text-slate-400">@manjurdigitallis</p>
                     </div>
                   </a>
                 </div>
@@ -232,7 +232,7 @@ export default function ServicesPage() {
         <div className="max-w-6xl mx-auto animate-on-scroll">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-10 border-b border-slate-700/50">
             <div>
-              <h2 className="text-2xl font-bold mb-3">JasaPedia</h2>
+              <h2 className="text-2xl font-bold mb-3">Manjurdigitallis</h2>
               <p className="text-slate-400 text-sm leading-relaxed">{i.footerDesc}</p>
             </div>
             <div>
@@ -241,8 +241,10 @@ export default function ServicesPage() {
                 <li><Link href="/" className="text-slate-400 hover:text-white text-sm transition-colors cursor-pointer">{i.home}</Link></li>
                 <li><span className="text-white text-sm font-semibold cursor-default">{i.services}</span></li>
                 <li><Link href="/advantages" className="text-slate-400 hover:text-white text-sm transition-colors cursor-pointer">{i.advantages}</Link></li>
+                <li><Link href="/#testimoni" className="text-slate-400 hover:text-white text-sm transition-colors cursor-pointer">{i.testimonials}</Link></li>
                 <li><Link href="/#proses" className="text-slate-400 hover:text-white text-sm transition-colors cursor-pointer">{i.howItWorks}</Link></li>
-                <li><a onClick={() => router.push("/contact")} className="text-slate-400 hover:text-white text-sm transition-colors cursor-pointer">{i.contact}</a></li>
+                <li><a href="https://cv-gray-iota.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white text-sm transition-colors cursor-pointer">{i.portfolio}</a></li>
+                <li><a href="https://wa.me/6283173495159?text=Halo%20kak%2C%20saya%20mau%20konsultasi" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white text-sm transition-colors cursor-pointer">{i.contactUs}</a></li>
               </ul>
             </div>
             <div>
@@ -267,14 +269,14 @@ export default function ServicesPage() {
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-slate-400 hover:text-pink-400 text-sm transition-colors cursor-pointer">
-                    <FaInstagram className="flex-shrink-0" /> @jasapedia
+                  <a href="https://www.instagram.com/manjurdigitallis?igsh=djNlMW05a2ZtYnVr" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-slate-400 hover:text-pink-400 text-sm transition-colors cursor-pointer">
+                    <FaInstagram className="flex-shrink-0" /> @manjurdigitallis
                   </a>
                 </li>
               </ul>
             </div>
           </div>
-          <p className="text-slate-500 text-sm text-center mt-8">&copy; 2025 JasaPedia. All rights reserved.</p>
+          <p className="text-slate-500 text-sm text-center mt-8">&copy; 2025 Manjurdigitallis. All rights reserved.</p>
         </div>
       </footer>
 

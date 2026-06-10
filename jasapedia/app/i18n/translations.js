@@ -35,7 +35,7 @@ export const t = {
 
     // Features
     whyUs: "Kenapa Kami?",
-    featuresTitle: "Keunggulan JasaPedia",
+    featuresTitle: "Keunggulan Manjurdigitallis",
     feat1Title: "Cepat & Tepat Waktu",
     feat1Desc: "Pengerjaan sesuai deadline yang disepakati tanpa kompromi kualitas",
     feat2Title: "Kualitas Premium",
@@ -109,7 +109,7 @@ export const t = {
     // Keunggulan page
     advantages: "Keunggulan",
     advPageTitle: "Keunggulan",
-    advPageDesc: "Mengapa memilih JasaPedia sebagai partner digital Anda",
+    advPageDesc: "Mengapa memilih Manjurdigitallis sebagai partner digital Anda",
     adv1Title: "Cepat & Tepat Waktu",
     adv1Desc: "Kami memahami waktu adalah uang. Setiap proyek dikerjakan dengan timeline ketat dan delivery sesuai deadline yang disepakati, tanpa kompromi kualitas.",
     adv1Points: ["Timeline jelas dari awal", "Progress report berkala", "Delivery tepat waktu"],
@@ -165,7 +165,7 @@ export const t = {
 
     // Features
     whyUs: "Why Us?",
-    featuresTitle: "Why Choose JasaPedia",
+    featuresTitle: "Why Choose Manjurdigitallis",
     feat1Title: "Fast & On Time",
     feat1Desc: "We deliver on the agreed deadline without compromising quality",
     feat2Title: "Premium Quality",
@@ -239,7 +239,7 @@ export const t = {
     // Keunggulan page
     advantages: "Advantages",
     advPageTitle: "Advantages",
-    advPageDesc: "Why choose JasaPedia as your digital partner",
+    advPageDesc: "Why choose Manjurdigitallis as your digital partner",
     adv1Title: "Fast & On Time",
     adv1Desc: "We understand time is money. Every project follows a strict timeline with delivery on the agreed deadline, without compromising quality.",
     adv1Points: ["Clear timeline from the start", "Regular progress reports", "On-time delivery"],

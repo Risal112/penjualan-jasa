@@ -1,10 +1,11 @@
 "use client";
 
+import { Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import { HiOutlineArrowLeft, HiOutlineCodeBracket } from "react-icons/hi2";
 
-export default function OrderPage() {
+function OrderForm() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const serviceName = searchParams.get("serviceName") || "";
@@ -123,5 +124,13 @@ export default function OrderPage() {
         </div>
       </section>
     </div>
+  );
+}
+
+export default function OrderPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+      <OrderForm />
+    </Suspense>
   );
 }
